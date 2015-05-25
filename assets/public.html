@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title></title>
+<meta name="keywords" content="webview Android" /> 
+
+</head>
+<body>
+
+public 关键字是可以应用于类、方法或字段（在类中声明的变量）的访问控制修饰符。</br>
+示例</br>
+<font color="green">
+   public class MyPublicClass</br>
+   {</br>
+      public class MyPrivateClass</br>
+      {</br>
+      }</br>
+      public int i;</br>
+      public String myMethod()</br>
+      {</br>
+        statements</br>
+      }</br>
+   }</br>
+</font>
+注释</br>
+可能只会在其他任何类或包中引用 public 类、方法或字段。</br>
+所有类成员的默认访问范围都是 package 访问，也就是说，除非存在特定的访问控制修饰符，否则，可以从同一个包中的任何类访问类成员。</br>
+</br>
+**此处，增加一些知识：</br>
+Java有四种访问权限， 其中三种有访问权限修饰符，分别为private，public和protected，还有一种不带任何修饰符。</br>
+1.private: Java语言中对访问权限限制的最窄的修饰符，一般称之为“私有的”。被其修饰的类、属性以及方法只能被该类的对象访问，其子类不能访问，更不能允许跨包访问。</br>
+2.default：即不加任何访问修饰符，通常称为“默认访问模式“。该模式下，只允许在同一个包中进行访问。</br>
+3.protect: 介于public 和 private 之间的一种访问修饰符，一般称之为“保护形”。被其修饰的类、属性以及方法只能被类本身的方法及子类访问，即使子类在不同的包中也可以访问。</br>
+4.public： Java语言中访问限制最宽的修饰符，一般称之为“公共的”。被其修饰的类、属性以及方法不仅可以跨类访问，而且允许跨包（package）访问。</br>
+
+
+
+
+</body>
+</html>

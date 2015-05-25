@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title></title>
+<meta name="keywords" content="webview Android" /> 
+
+</head>
+<body>
+
+
+finally 关键字用来定义<b>始终</b>在 try-catch-finally 语句中执行的块。</br>
+finally 块通常包含清理代码，用在部分执行 try 块后恢复正常运行。</br>
+示例</br>
+<font color="green">
+   try</br>
+   {</br>
+      <可能引发异常的块></br>
+   }</br>
+   catch (<java.lang.Exception 或子类> e)</br>
+   {</br>
+      <处理异常 e 的代码></br>
+   }</br>
+   finally</br>
+   {</br>
+      <有异常或无异常情况下都执行的语句></br>
+   }</br>
+</font>
+注释</br>
+<b>开始和结束标记 { 和 } 是 finally 子句语法的一部分，即使该子句只包含一个语句，也不能省略这两个标记。</b></br>
+每个 try 块都必须至少有一个 catch 或 finally 子句。</br>
+<b>!!!如果执行 try 块的任何部分，不论是否出现异常，也不论 try 或 catch 块是否包含 return、continue 或 break 语句，都一定会执行 finally 块中的代码。</b>此问题面试中经常问到！！！</br>
+如果不出现异常，控件将跳过 try 块，进入 finally 块。</br>
+如果在执行 try 块期间出现异常，并且相应的 catch 块包含 break、continue 或 return 语句，<b>控件将首先穿过 finally 块</b>，之后再执行 break、continue 或 return。</br>
+
+
+
+
+
+
+</body>
+</html>

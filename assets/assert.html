@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title></title>
+<meta name="keywords" content="webview Android" /> 
+
+</head>
+<body>
+1、assertion(断言)是jdk1.4才开始支持的新功能，主要在开发和测试时开启，为保证性能，在正式发布后通常是关闭。</br>
+
+ 
+
+2、Java中assertion与C中的assertion的区别在于：</br>
+
+1）Java中是使用assert关键字去实现其功能，而C中是使用的类库函数；</br>
+
+2）C中的assertion是在编译时开启，Java中则是在运行时才开启(但是在编译时，一定要在jdk1.4环境下，否则会编译通过不，因为assert是个新的关键字)，方式如下：</br>
+
+     java -ea AssertTest</br>
+
+ 
+
+3、assert表达式有两种：</br>
+
+1）assert exp1 此时的exp1为一个boolean类型的表达式，当其值为true时，运行通过，如果为false，则会抛出一个相应的AssertionError，注意它可以被catch，也可以不去处理</br>
+
+ 
+
+2）assert exp1 : exp2 此时的exp1同上，而exp2可以为基本类型或一个Object，当exp1的值为true时，同上，且exp2不会被运算；而当exp1的值为false时，将会抛出AssertionError，同时将exp2的结果作为AssertionError构造器中的参数，当使用catch该错误时，可利用getMessage()方法打印出exp2的结果。</br>
+
+ 
+
+4、关于assert使用的范围</br>
+
+1）不要将其用在去判断public方法的参数，如下</br>
+<font color="green">
+public void f1(int x) {  </br>
+    assert x > 0;  </br>
+    ....  </br>
+}  </br>
+public void f1(int x) {</br>
+    assert x > 0;</br></br>
+    ....</br>
+} </br>
+
+ </font>
+
+2）也不要将其用来去直接判断方法的返回值，如下</br>
+<font color="green">
+public boolean f1(int x) {return true;}  </br>
+  
+public void f2(int y) {assert f1()}  </br>
+public boolean f1(int x) {return true;}</br>
+
+public void f2(int y) {assert f1()} </br>
+</font>
+这种情况下，如过assertion为disabled，则f2中的f1()不会执行，此时可以用下面的方法</br>
+<font color="green">
+public void f2() {  </br>
+    boolean flag = f1();  </br>
+    assert flag;  </br>
+    ...  </br>
+}  </br></br>
+public void f2() {</br>
+    boolean flag = f1();</br>
+    assert flag;</br>
+    ...</br>
+} </br>
+</font>
+ 
+
+下面是两个关于assert应用的简单例子</br>
+<font color="green">
+public class AssertTest1 {  </br>
+      
+    public void assertMe(boolean foo) {  </br>
+        assert foo ? true : false;  </br>
+        System.out.println("in true condition");  </br>
+    }  </br>
+  
+    public static void main(String[] args) {  </br>
+        AssertTest1 at = new AssertTest1(); </br> 
+        at.assertMe(true);  </br>
+        at.assertMe(false); </br> 
+    }  </br>
+public class AssertTest1 {</br>
+    
+    public void assertMe(boolean foo) {</br>
+        assert foo ? true : false;</br>
+        System.out.println("in true condition");</br>
+    }</br>
+
+    public static void main(String[] args) {</br>
+        AssertTest1 at = new AssertTest1();</br>
+        at.assertMe(true);</br>
+        at.assertMe(false);</br>
+    } </br>
+</font>
+
+编译：javac -d . AssertTest1.java</br>
+
+运行：java -ea AssertTest1</br>
+
+结果为：</br>
+
+in true condition</br>
+
+Exception in thread "main" java.lang.AssertionError</br>
+
+                at AssertTest1.assertMe(AssertTest1.java:4)</br>
+
+                at AssertTest1.main(AssertTest1.java:14)</br>
+
+ 
+
+ <font color="green">
+public class AssertTest2 {  </br>
+  
+    public void assertMe(boolean foo) {  </br>
+        String str = null;  </br>
+        assert foo?true:false : str = "Error Occur!";  </br>
+        System.out.println("in true condition");  </br>
+    }  </br>
+  
+    public static void main(String[] args) {  </br>
+        AssertTest2 at = new AssertTest2(); </br>
+        try {  </br>
+            at.assertMe(true);  </br>
+            at.assertMe(false);  </br>
+        } catch(AssertionError ae) {  </br>
+            System.out.println(ae.getMessage());  </br>
+        }  </br>
+    }  </br>
+}  </br>
+public class AssertTest2 {</br>
+
+    public void assertMe(boolean foo) {</br>
+        String str = null;</br>
+        assert foo?true:false : str = "Error Occur!";</br>
+        System.out.println("in true condition");</br>
+    }</br>
+
+    public static void main(String[] args) {</br>
+        AssertTest2 at = new AssertTest2();</br>
+        try {</br>
+            at.assertMe(true);</br>
+            at.assertMe(false);</br>
+        } catch(AssertionError ae) {</br>
+            System.out.println(ae.getMessage());</br>
+        }</br>
+    }</br>
+} </br>
+</font>
+运行后结果：</br>
+
+in true condition</br>
+</br>
+Error Occur!</br>
+
+
+</body>
+</html>

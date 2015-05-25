@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.lxh.demo"
+    android:versionCode="3"
+    android:versionName="1.2" >
+
+    <uses-sdk android:minSdkVersion="10" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+   
+    <application
+        android:icon="@drawable/icon"
+        android:label="@string/app_name" >
+        <activity
+            android:name="net.youmi.android.AdBrowser"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+        </activity>
+
+        <service
+            android:name="net.youmi.android.AdService"
+            android:exported="false" >
+        </service>
+
+        <receiver android:name="net.youmi.android.AdReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="org.yayun.keywordReader.Login"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Abstract_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Assert_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Boolean_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Break_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Byte_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Case_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Catch_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Char_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Class_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Const_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Continue_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Default_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Do_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Double_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Else_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Enum_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Extends_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Final_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Finally_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Float_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.For_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Goto_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.If_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Implements_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Import_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Instanceof_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Int_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Interface_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Long_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Native_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.New_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Package_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Private_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Protected_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Public_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Return_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Short_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Static_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Super_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Switch_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Synchronized_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.This_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Throw_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Throws_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Transient_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Try_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Void_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.Volatile_activity" >
+        </activity>
+        <activity android:name="org.yayun.keywordReader.While_activity" >
+        </activity>
+    </application>
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+</manifest>

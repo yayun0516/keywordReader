@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, Hello!</string>
+    <string name="app_name">JAVA关键字学习</string>
+    <string name="abstract_name">abstract</string>
+    <string name="abstract_content">abstract</string>
+    <drawable name="bkcolor">#ffffff</drawable>
+
+</resources>

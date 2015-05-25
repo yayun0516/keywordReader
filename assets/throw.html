@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title></title>
+<meta name="keywords" content="webview Android" /> 
+
+</head>
+<body>
+
+throw 关键字用于引发异常。</br>
+示例</br>
+<font color="green">
+   import java.io.IOException;</br>
+   public class MyClass</br>
+   {</br>
+      public method readFile(String filename) throws IOException</br>
+      {</br>
+         statements</br>
+         if (error)</br>
+         {</br>
+            throw new IOException("error reading file");</br>
+         }</br>
+      }</br>
+   }</br>
+</font>
+注释</br>
+throw 语句将 java.lang.Throwable 作为参数。Throwable 在调用栈中向上传播，直到被适当的 catch 块捕获。</br>
+引发非 RuntimeException 异常的任何方法还必须在方法声明中使用 throws 修饰符来声明它引发的异常。</br>
+
+
+
+
+</body>
+</html>

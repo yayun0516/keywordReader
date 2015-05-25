@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title></title>
+<meta name="keywords" content="webview Android" /> 
+
+</head>
+<body>
+abstract（抽象）修饰符，可以修饰类和方法</br>
+
+1，abstract修饰类，会使这个类成为一个抽象类，这个类将不能生成对象实例，但可以做为对象变量声明的类型，也就是编译时类型，抽象类就像当于一类的半成品，需要子类继承并覆盖其中的抽象方法。</br>
+
+2，abstract修饰方法，会使这个方法变成抽象方法，也就是只有声明（定义）而没有实现，实现部分以 ；代替。需要子类继承实现（覆盖）。</br>
+
+注意：<b>有抽象方法的类一定是抽象类。但是抽象类中不一定都是抽象方法，也可以全是具体方法。</b></br>
+
+abstract修饰符在修饰类时必须放在类名前。</br>
+
+abstract修饰方法就是要求其子类覆盖（实现）这个方法。调用时可以以多态方式调用子类覆盖（实现）后的方法，也就是说抽象方法必须在其子类中实现，除非子类本身也是抽象类。</br>
+
+注意：父类是抽象类，其中有抽象方法，那么子类继承父类，并把父类中的所有抽象方法都实现（覆盖）了，子类才有创建对象的实例的能力，否则子类也必须是抽象类。抽象类中可以有构造方法，是子类在构造子类对象时需要调用的父类（抽象类）的构造方法。</br>
+举个简单的例子下面有一个抽象类</br>
+<font color="green">
+abstract class E{</br>
+public  abstract  void  show();//public abstract 可以省略</br>
+}</font></br>
+然后其它类如果继承它通常为了实现它里面的方法</br>
+<font color="green">
+class F extends E{</br>
+     void show(){</br>
+    //写具体实现的代码 </br>
+}</br>
+}</br></font>
+最后再主方法里面定义一个父类引用指向子类对象,就会发生多态现象,比如 </br>
+<font color="green">
+E e=new F();</br>
+e.show();</br></font>
+实际调用了子类里面的show()方法 </br>
+
+</body>
+</html>

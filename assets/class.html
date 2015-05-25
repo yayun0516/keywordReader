@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title></title>
+<meta name="keywords" content="webview Android" /> 
+
+</head>
+<body>
+<b>一，class类有什么用？</b></br>
+class 关键字用来声明新的 Java 类，该类是相关变量和/或方法的集合。</br>
+类是面向对象的程序设计方法的基本构造单位。类通常代表某种实际实体，如几何形状或人。类是对象的模板。每个对象都是类的一个实例。</br>
+要使用类，通常使用 new 操作符将类的对象实例化，然后调用类的方法来访问类的功能。</br>
+示例</br>
+<font color="green">
+   public class Rectangle</br>
+   {</br>
+      float width;</br>
+      float height;</br>
+      public Rectangle(float w, float h)</br>
+      {</br>
+        width = w;</br>
+        height = h;</br>
+      }</br>
+      public float getWidth()</br>
+      {</br>
+         return width;</br>
+      }</br>
+      public float getHeight()</br>
+      {</br>
+         return height;</br>
+      }</br>
+   }</br>
+</font>
+<b>二，class类的特征</b></br>
+    class类没有公有的构造方法，它由JVM自动调用（在new对象或者加载-classLoader时）。</br>
+
+    下面的方法作用是打印出对象的class name：</br>
+<font color="green">
+ void printClassName(Object obj) {</br>
+         System.out.println("The class of " + obj +</br>
+                            " is " + obj.getClass().getName());</br>
+   }</br>
+</font>
+  同样可以根据class literal 获得class name：</br>
+  System.out.println("The name of class Foo is: "+Foo.class.getName());//你可以将Foo改为void尝试下。</br>
+<b>三，class的主要方法</b></br>
+
+class类的方法还是挺多的。主要是用于得到运行时类的相关信息(可用于反射)。</br>
+
+  重要的几个方法：</br>
+
+1， public static Class<?> forName(String className) ：此方法，动态加载类。非常重要。</br>
+       如在sql中动态加载驱动程序:class.forName(sqlDriver);</br>
+
+2，public T newInstance() ：根据对象的class新建一个对象，用于反射。非常重要。</br>
+       可用在反射中构建对象，调用对象方法：</br>
+
+       class doubleClass= class.forName("java.lang.Double");</br>
+
+       Object objDouble = doubleClass.newInstance();</br>
+
+       如在javaBean中就应用了这个方法，因为java默认要有一个无参构造函数。</br>
+
+3， public ClassLoader getClassLoader() ：获得类的类加载器Bootstrap  ，Extension ,System or user custom      ClassLoader(一般为system classloader)。重要。</br>
+
+ 
+
+4，public String getName() ：获取类或接口的名字。记住enum为类，annotation为接口。重要</br>
+
+5，public native Class getSuperclass()：获取类的父类，继承了父类则返回父类，否则返回java.lang.Object。返回Object的父类为空-null。一般natice </br>
+6，public java.net.URL getResource(String name) ：根据字符串获得资源。</br>
+
+7，其他类 </br>
+
+ public boolean isEnum() ：判断是否为枚举类型。</br>
+
+ public native boolean isArray() ：判断是否为数组类型。</br>
+
+ public native boolean isPrimitive() ：判断是否为基本类型。</br>
+ public boolean isAnnotation() ：判断是否为注解类型。</br>
+
+
+public Package getPackage() ：反射中获得package，如java.lang.Object 的package为java.lang。</br>
+
+public native int getModifiers() ： 反射中获得修饰符，如public static void等 。</br>
+</br>
+public Field getField(String name)：反射中获得域成员。</br>
+
+public Field[] getFields() :获得域数组成员。  </br>  
+public Method[] getMethods() ：获得方法。</br>
+
+public Method getDeclaredMethod(String name, Class<?>... parameterTypes)：加个Declared代表本类，继承，父类均不包括。</br>
+
+public Constructor<?>[] getConstructors() ：获得所有的构造函数。</br>
+
+如此我们可以知道反射可以运行时动态获得类的所有信息，并新建对象（newInstance()方法）。</br>
+
+如我们定义一个类：</br>
+<font color="green">
+
+public class Test{</br>
+
+   //Constructor</br>
+
+   public Test(){this("");}</br>
+</br>
+   public Test(String name){}</br>
+
+   //Field</br>
+
+   public int id;</br>
+
+   public String name;</br>
+
+   //Method</br>
+
+   public void testMethod(){</br>
+
+ 
+
+   }</br>
+
+}</br>
+</font>
+我们可以:</br>
+<font color="green">
+Class c = Class.forName("Test");</br>
+Method m[] = c.getDeclaredMethods();</br>
+for (int i = 0; i < m.length; i++)</br>
+   System.out.println(m[i].toString());//输出testMethod</br>
+} </br>
+
+Constructor c[] = cls.getDeclaredConstructors();</br>
+for (int i = 0; i < c.length; i++) {</br>
+   Constructor ct = c[i];</br>
+System.out.println("name = " + ct.getName());//输出两个构造函数信息</br>
+</font>
+ 
+
+
+
+
+</body>
+</html>

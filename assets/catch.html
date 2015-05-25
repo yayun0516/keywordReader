@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title></title>
+<meta name="keywords" content="webview Android" /> 
+
+</head>
+<body>
+catch 关键字用来在 try-catch 或 try-catch-finally 语句中定义异常处理块。</br>
+示例</br>
+<font color="green">
+   try</br>
+   {</br>
+      <可能引发异常的块></br>
+   }</br>
+   catch (<java.lang.Exception 或子类> e)</br>
+   {</br>
+      <处理异常 e 的代码></br>
+   } </br>
+   try</br>
+   {</br>
+      <可能引发其他异常的块></br>
+   }</br>
+   catch (FooException e)</br>
+   {</br>
+      <处理 FooException e 的代码></br>
+   }</br>
+   catch (BarException e)</br>
+   {</br>
+      <处理 BarException e 的代码></br>
+   } </br>
+   try</br>
+   {</br>
+      <可能引发异常的块></br>
+   }</br>
+   catch (<java.lang.Exception 或子类> e)</br>
+   {</br>
+      <处理异常 e 的代码></br>
+   }</br>
+   finally</br>
+   {</br>
+      <有异常或无异常情况下都执行的语句></br>
+   }</br>
+</font>
+注释</br>
+1.开始和结束标记 { 和 } 是 catch 子句语法的一部分，即使该子句只包含一个语句，也不能省略这两个标记。</br>
+<b>2.每个 try 块都必须至少有一个 catch 或 finally 子句。</b></br>
+3.如果某个特定异常类未被任何 catch 子句处理，该异常将沿着调用栈递归地传播到下一个封闭 try 块。如果任何封闭 try 块都未捕获到异常，Java 解释器将退出，并显示错误消息和堆栈跟踪信息。</br>
+
+
+
+</body>
+</html>

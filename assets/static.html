@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title></title>
+<meta name="keywords" content="webview Android" /> 
+
+</head>
+<body>
+
+static 关键字可以应用于内部类（在另一个类中定义的类）、方法或字段（类的成员变量）。</br>
+示例</br>
+<font color="green">
+<code>
+   public class MyPublicClass</br>
+   {</br>
+      public final static int MAX_OBJECTS = 100;</br>
+      static int _numObjects = 0;</br>
+      static class MyStaticClass</br>
+      {</br>
+      }</br>
+    
+      static int getNumObjects()</br>
+      {</br>
+      }</br>
+   }</br>
+</code>
+</font>
+注释</br>
+通常，static 关键字意味着应用它的实体在声明该实体的类的任何特定实例外部可用。</br>
+static（内部）类可以被其他类实例化和引用（即使它是顶级类）。在上面的示例中，另一个类中的代码可以实例化 MyStaticClass 类，方法是用包含它的类名来限定其名称，如 MyClass.MyStaticClass。</br>
+static 字段（类的成员变量）在类的所有实例中只存在一次。</br>
+可以从类的外部调用 static 方法，而不用首先实例化该类。这样的引用始终包括类名作为方法调用的限定符。在上面的示例中，MyClass 类外部的代码以 MyClass.getNumObjects() 的形式调用 getNumObjects() static 方法。</br>
+模式：</br>
+public final static &lttype&gt varName = &ltvalue&gt;</br>
+通常用于声明可以在类的外部使用的类常量。在引用这样的类常量时需要用类名加以限定。在上面的示例中，另一个类可以用 MyClass.MAX_OBJECTS 形式来引用 MAX_OBJECTS 常量。</br>
+
+
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title></title>
+<meta name="keywords" content="webview Android" /> 
+
+</head>
+<body>
+
+
+<b>1.基本用法</b></br>
+<font color="green">
+enum Day {</br>
+    SUNDAY, MONDAY, TUESDAY, WENDSDAY, THURSDAY, FRIDAY, SATURDAY;</br>
+}</br>
+</font>
+枚举是常量，所以应该用<b>大写</b>。</br>
+
+
+<b>2.枚举是对象</b></br>
+
+枚举隐含地继承了java.lang.Enum，所以它具有java.lang.Enum的属性和方法。遍历枚举：</br>
+<font color="green">
+public class Main {</br>
+    public static void main(String[] args) {</br>
+        for(Day day:Day<b>.values()</b>) {</br>
+            System.out.println(day);</br>
+        }</br>
+    }</br>
+}</br>
+
+</font>
+<b>3.枚举可以带字段和方法，以下示例来自官方</b></br>
+<font color="green">
+public enum EnumDemo {</br>
+    AOBJECT("field one", "field two");</br>
+
+    private String field1;</br>
+    private String field2;</br>
+
+    EnumDemo(String val1, String val2){</br>
+        this.field1 = val1;</br>
+        this.field2 = val2;</br>
+    }</br>
+
+    public void printFields(){</br>
+        System.out.println(this.field1);</br>
+        System.out.println(this.field2);</br>
+    }</br>
+
+    public static void main(String[] args) {</br>
+        EnumDemo.AOBJECT.printFields();</br>
+    }</br>
+}</br>
+</font>
+以下现实中的示例来自官方的Java Tutorial:</br>
+<font color="green">
+public enum Planet {</br>
+    MERCURY (3.303e+23, 2.4397e6),</br>
+    VENUS   (4.869e+24, 6.0518e6),</br>
+    EARTH   (5.976e+24, 6.37814e6),</br>
+    MARS    (6.421e+23, 3.3972e6),</br>
+    JUPITER (1.9e+27,   7.1492e7),</br>
+    SATURN  (5.688e+26, 6.0268e7),</br>
+    URANUS  (8.686e+25, 2.5559e7),</br>
+    NEPTUNE (1.024e+26, 2.4746e7);</br>
+
+    private final double mass;   // in kilograms</br>
+    private final double radius; // in meters</br>
+
+    Planet(double mass, double radius) {</br>
+        this.mass = mass;</br>
+        this.radius = radius;</br>
+    }</br>
+
+    private double mass() { return mass; }</br>
+    private double radius() { return radius; }</br>
+
+    // universal gravitational constant  (m3 kg-1 s-2)</br>
+    public static final double G = 6.67300E-11;</br>
+
+    double surfaceGravity() {</br>
+        return G * mass / (radius * radius);</br>
+    }</br>
+
+    double surfaceWeight(double otherMass) {</br>
+        return otherMass * surfaceGravity();</br>
+    }</br>
+
+    public static void main(String[] args) {</br>
+        Double earthWeight = 120;</br>
+        for(Planet p: Planet.values()){</br></br>
+            System.out.println(p.surfaceGravity());</br>
+            System.out.println(p.surfaceWeight(earthWeight/EARTH.surfaceGravity()));</br>
+        }</br>
+    }</br>
+}</br>
+
+</font>
+<b>4.枚举是singleton，可以用枚举来构建一个Singleton</b></br>
+<font color="green">
+public enum Singleton {</br>
+    INSTANCE(new String[]{"arg1", "arg2"});</br>
+
+    String[] myArgs;</br>
+    Singleton(String[] args){</br>
+        this.myArgs = args;</br>
+    }</br>
+
+    public static Singleton getInstance(){</br>
+        return INSTANCE;</br>
+    }</br>
+
+    public static void main(String[] args) {</br>
+        for(String arg : INSTANCE.myArgs)</br>
+            System.out.println(arg);</br>
+    }</br>
+}</br>
+
+</font>
+
+
+
+
+
+</body>
+</html>

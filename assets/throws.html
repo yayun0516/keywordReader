@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title></title>
+<meta name="keywords" content="webview Android" /> 
+
+</head>
+<body>
+
+throws 关键字可以应用于方法，以便指出方法引发了特定类型的异常。</br>
+示例</br>
+<font color="green">
+   import java.io.IOException;</br>
+   public class MyClass</br>
+   {</br>
+      public method readFile(String filename) throws IOException</br>
+      {</br>
+         statements</br>
+         if (error)</br>
+         {</br>
+            throw new IOException("error reading file");</br>
+         }</br>
+      }</br>
+   }</br>
+</font>
+注释</br>
+throws 关键字将逗号分隔的 java.lang.Throwables 列表作为参数。</br>
+引发非 RuntimeException 异常的任何方法还必须在方法声明中使用 throws 修饰符来声明它引发的异常。</br>
+要在 try-catch 块中包含带 throws 子句的方法的调用，必须提供该方法的调用者。</br>
+
+</br>
+增加一些知识（throw和throws的区别）：</br>
+1.throw 是语句抛出一个异常；throws 是方法抛出一个异常；</br>
+2.throws可以单独使用，但throw不能；</br>
+3. throw要么和try-catch-finally语句配套使用，要么与throws配套使用。但throws可以单独使 用，然后再由处理异常的方法捕获；</br>
+4.throws出现在方法函数头；而throw出现在函数体； </br>
+5.throws表示出现异常的一种可能性，并不一定会发生这些异常；throw则是抛出了异常，执行throw则一定抛出了某种异常；</br>
+最后：两者都是消极处理异常的方式（这里的消极并不是说这种方式不好），只是抛出或者可能抛出异常，但是不会由函数去处理异常，真正的处理异常由函数的上层调用处理。</br>
+
+
+
+
+</body>
+</html>
